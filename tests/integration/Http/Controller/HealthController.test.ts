@@ -19,6 +19,6 @@ describe("Health Check Controller", () => {
 
         expect(response.body.data.alive).to.equal(true);
 
-        await app.close();         
+        await app.close();
     })
 });
