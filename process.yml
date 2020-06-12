@@ -1,0 +1,42 @@
+apps:
+  - script   : app/dist/index.js
+    instances: max
+    watch: false
+    ignore_watch : ["node_modules", "dist", ".vscode", ".idea", "tests", "bin"]
+    name     : service-skeleton
+    exec_mode: cluster
+    node_args: ["--max_old_space_size=1000"]
+    error_file : "/var/log/webserver/err.log"
+    out_file : "/var/log/webserver/out.log"
+    merge_logs: true
+    env:
+      APPLICATION_ENV: development
+      NODE_ENV: development
+    env_production:
+      APPLICATION_ENV: production
+      NODE_ENV: production
+    env_staging:
+      APPLICATION_ENV: staging
+      NODE_ENV: staging
+  - script: dist/index.js
+    instances: 1
+    watch: true
+    ignore_watch: ["node_modules", ".git", "dist", ".vscode",  "node_modules/**/**/.idea",".idea", "tests", "bin", "process.yml"]
+    watch_options:
+      followSymlinks: true
+    name: dev-service
+    exec_mode: cluster
+    node_args: --max_old_space_size=1000
+    error_file: "/var/log/webserver/err.log"
+    out_file: "/var/log/webserver/out.log"
+    merge_logs: true
+    env:
+      APPLICATION_ENV: development
+      NODE_ENV: development
+    env_production:
+      APPLICATION_ENV: production
+      NODE_ENV: production
+    env_staging:
+      APPLICATION_ENV: staging
+      NODE_ENV: staging
+

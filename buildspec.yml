@@ -1,0 +1,35 @@
+version: 0.2
+
+env:
+  variables:
+    SERVERLESS_ACCESS_KEY: AKlVuU3hPn7760lvcpvEPiIKTjh8n7sHX4zsd2aFHsDBV
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - echo Installing global dependencies...x
+      - npm install -g typescript
+  pre_build:
+    commands:
+      - echo Installing nodejs dependencies...
+      - npm ci
+      - tsc
+#      - npm run test:integration -- -g "^MappingFunctionality-UPDATED_ORDER_STATUS"
+  build:
+    commands:
+      - echo Deployment started on `date`
+      - tsc
+  post_build:
+    commands:
+      - echo Deployment completed on `date`
+artifacts:
+  files:
+    - dist/**/*
+    - appspec.yml
+    - process.yml
+    - newrelic.js
+    - package.json
+    - .npmrc
+    - scripts/*

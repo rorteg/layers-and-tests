@@ -1,0 +1,35 @@
+# Dependency directories
+node_modules/
+typings/
+cert/
+dist/
+resources/
+.vscode/
+
+# Optional npm cache directory
+.npm
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+*.log
+*.sample.json
+
+#general
+npm-debug*
+.idea
+.nyc_output

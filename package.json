@@ -1,0 +1,55 @@
+{
+  "name": "@madeiramadeirabr/service-skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "APPLICATION_ENV=test mocha --timeout 10000 --require tests/bootstrap.js -r ts-node/register tests/**/**/**/**",
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "start": "tsc && concurrently \"tsc -w\" \"pm2 start process.yml --only dev-service && pm2 logs\"",
+    "json-schema-file": "./node_modules/@madeiramadeirabr/service-codebase-core/bin/ts-to-jsonschema --file",
+    "json-schema-path": "./node_modules/@madeiramadeirabr/service-codebase-core/bin/ts-to-jsonschema --path ./src/Http/Payload/Validation",
+    "commit": "git-cz"
+  },
+  "author": "",
+  "license": "ISC",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "@madeiramadeirabr/service-codebase-core": "^4.3.1",
+    "nyc": "^15.1.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/chai": "^4.2.11",
+    "@types/express": "^4.17.6",
+    "@types/mocha": "^5.2.7",
+    "@types/moment-timezone": "^0.5.13",
+    "@types/mongodb": "^3.5.17",
+    "@types/node": "^12.12.39",
+    "@types/reflect-metadata": "^0.1.0",
+    "@types/sinon": "^7.5.2",
+    "chai": "^4.2.0",
+    "commitizen": "^4.1.2",
+    "concurrently": "^5.2.0",
+    "coveralls": "^3.1.0",
+    "faker": "^4.1.0",
+    "husky": "^4.2.5",
+    "mocha": "^6.2.3",
+    "sinon": "^7.5.0",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.2",
+    "typescript-json-schema": "^0.42.0"
+  }
+}

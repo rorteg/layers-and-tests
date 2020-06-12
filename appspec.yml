@@ -1,0 +1,30 @@
+version: 0.0
+os: linux
+files:
+  - source: dist
+    destination: /var/www/service/dist
+  - source: process.yml
+    destination: /var/www/server
+  - source: package.json
+    destination: /var/www/service
+  - source: newrelic.js
+    destination: /var/www/service
+  - source: .npmrc
+    destination: /var/www/service
+hooks:
+  BeforeInstall:
+    - location: scripts/before-install.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/after-install.sh
+      timeout: 600
+      runas: root
+  ApplicationStart:
+    - location: scripts/start-server.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop-server.sh
+      timeout: 300
+      runas: root
