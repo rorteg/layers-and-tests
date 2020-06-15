@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "APPLICATION_ENV=test mocha --timeout 10000 --require tests/bootstrap.js -r ts-node/register tests/**/**/**/**",
-    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "report-coverage": "nyc npm test  --reporter lcovonly -- -R spec || ./node_modules/.bin/codecov",
     "start": "tsc && concurrently \"tsc -w\" \"pm2 start process.yml --only dev-service && pm2 logs\"",
     "json-schema-file": "./node_modules/@madeiramadeirabr/service-codebase-core/bin/ts-to-jsonschema --file",
     "json-schema-path": "./node_modules/@madeiramadeirabr/service-codebase-core/bin/ts-to-jsonschema --path ./src/Http/Payload/Validation",
@@ -24,8 +24,7 @@
     }
   },
   "dependencies": {
-    "@madeiramadeirabr/service-codebase-core": "^4.3.1",
-    "nyc": "^15.1.0"
+    "@madeiramadeirabr/service-codebase-core": "^4.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
@@ -48,6 +47,7 @@
     "faker": "^4.1.0",
     "husky": "^4.2.5",
     "mocha": "^6.2.3",
+    "nyc": "^15.1.0",
     "sinon": "^7.5.0",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.2",

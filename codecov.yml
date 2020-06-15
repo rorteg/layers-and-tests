@@ -2,14 +2,13 @@ coverage:
   status:
     project:
       default:
-        target: 80%
+        target: 90%
         threshold: 0%
-        base: pr
+        base: auto
         flags: 
           - integration
         paths: 
-          - "src"
-        only_pulls: true 
+          - "src" 
      # tests:  # declare a new status context "tests"
      #   target: 100%  # we always want 100% coverage here
      #   paths: "tests/"  # only include coverage in "tests/" folder
