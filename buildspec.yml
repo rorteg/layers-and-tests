@@ -3,6 +3,7 @@ version: 0.2
 env:
   variables:
     SERVERLESS_ACCESS_KEY: AKlVuU3hPn7760lvcpvEPiIKTjh8n7sHX4zsd2aFHsDBV
+    CODECOV_TOKEN: f057f9ee-e0a5-4297-9ded-44a97d206846
 
 phases:
   install:
@@ -16,7 +17,7 @@ phases:
       - echo Installing nodejs dependencies...
       - npm ci
       - tsc
-#      - npm run test:integration -- -g "^MappingFunctionality-UPDATED_ORDER_STATUS"
+      - npm run report-coverage
   build:
     commands:
       - echo Deployment started on `date`

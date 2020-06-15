@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "APPLICATION_ENV=test mocha --timeout 10000 --require tests/bootstrap.js -r ts-node/register tests/**/**/**/**",
-    "report-coverage": "nyc npm test  --reporter lcovonly -- -R spec || ./node_modules/.bin/codecov",
+    "report-coverage": "nyc npm test -- -R spec || ./node_modules/.bin/codecov",
     "start": "tsc && concurrently \"tsc -w\" \"pm2 start process.yml --only dev-service && pm2 logs\"",
     "json-schema-file": "./node_modules/@madeiramadeirabr/service-codebase-core/bin/ts-to-jsonschema --file",
     "json-schema-path": "./node_modules/@madeiramadeirabr/service-codebase-core/bin/ts-to-jsonschema --path ./src/Http/Payload/Validation",
