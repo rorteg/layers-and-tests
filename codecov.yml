@@ -1,7 +1,8 @@
 coverage:
   status:
     project:
-      default:
+      default: false
+      app:
         target: 90%
         threshold: 0%
         base: auto
@@ -9,8 +10,4 @@ coverage:
           - integration
         paths: 
           - "src" 
-     # tests:  # declare a new status context "tests"
-     #   target: 100%  # we always want 100% coverage here
-     #   paths: "tests/"  # only include coverage in "tests/" folder
-     # app:  # declare a new status context "app"
-     #   paths: "!tests/"  # remove all files in "tests/"
+          - "!tests/"
