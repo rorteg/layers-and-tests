@@ -1,4 +1,6 @@
 import {ApplicationEnvInterface} from "./ApplicationEnvInterface";
 
 /* istanbul ignore file */
-export const test: ApplicationEnvInterface = {};
+export const test: ApplicationEnvInterface = {
+    routePrefix: "skeleton"
+};

@@ -8,7 +8,7 @@ import Config from "./Config/Config";
 import * as routes from './Http/Route';
 
 const app = new App()
-    .setRouteConfig({routes: routes, prefix: 'skeleton'});
+    .setRouteConfig({routes: routes, prefix: Config.routePrefix});
     // .setMiddleware(Object.values(middleware));
 
 app.start().listen(Config.server.port, () => {
