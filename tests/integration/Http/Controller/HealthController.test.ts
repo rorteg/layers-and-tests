@@ -1,25 +1,14 @@
-import {App, HttpMethod} from "@madeiramadeirabr/service-codebase-core";
-import * as routes from '../../../../src/Http/Route';
-import {agent as request} from 'supertest';
-import {container} from "../../../Utils/Container/Container";
-import Config from "../../../../src/Config";
-import {expect} from "chai";
-
-container.load();
+import {request, Config, expect} from "../../helpers";
 
 describe("Health Check Controller", () => {
     it("A json must be returned containing the 'alive' property as true.", 
     async () => {
-        const app = await new App()
-        .setRouteConfig({routes: routes, prefix: Config.routePrefix})
-        .start();
-
-        const response = await request(app).get(`/${Config.routePrefix}/public/health/alive`)
+        const response = await request.get(
+            `/${Config.routePrefix}/public/health/alive`
+        )
         .type('json')
         .send();
 
         expect(response.body.data.alive).to.equal(true);
-
-        await app.close();
     })
 });
