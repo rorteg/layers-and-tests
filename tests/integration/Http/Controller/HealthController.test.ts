@@ -14,7 +14,7 @@ describe("Health Check Controller", () => {
         .setRouteConfig({routes: routes, prefix: Config.routePrefix})
         .start();
 
-        const response = await request(app).get("/skeleton/public/health/alive")
+        const response = await request(app).get(`/${Config.routePrefix}/public/health/alive`)
         .type('json')
         .send();
 
