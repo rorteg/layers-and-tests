@@ -1,8 +1,13 @@
 {
   "extends": "@istanbuljs/nyc-config-typescript",
-  "all": true,
+  "all": false,
   "include": [
-    "src/**/*.ts"
+    "src/Service/*.ts",
+    "src/Http/Controller/*.ts",
+    "src/Entity/*.ts"
+  ],
+  "excludes": [
+    "src/DataSource/**/**/**"
   ],
   "check-coverage": true
 }

@@ -4,6 +4,7 @@ typings/
 cert/
 dist/
 resources/
+coverage/
 .vscode/
 
 # Optional npm cache directory
