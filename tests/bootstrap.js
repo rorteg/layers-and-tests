@@ -1,2 +1,2 @@
-require("reflect-metadata");
-process.env.APPLICATION_ENV = 'test';
+require('reflect-metadata')
+process.env.APPLICATION_ENV = 'test'
