@@ -46,7 +46,7 @@
     "@types/reflect-metadata": "^0.1.0",
     "@types/sinon": "^7.5.2",
     "chai": "^4.2.0",
-    "codecov": "^3.7.0",
+    "codecov": "^3.8.3",
     "commitizen": "^4.1.2",
     "concurrently": "^5.2.0",
     "coveralls": "^3.1.0",
